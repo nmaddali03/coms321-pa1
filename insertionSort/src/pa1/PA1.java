@@ -45,6 +45,34 @@ public class PA1 {
 		}
 	}
 	
+	/*
+	 *  // X5 = addr
+		// X7 = pos
+		// X2 = final
+		shiftRight:
+			LDUR X7, [SP, #32] // load X7
+			LDUR X5, [SP, #8] // load X5
+			SUBI X14, X2, #1 // X14 = final - 1 (i)
+		shiftRightLoop:
+			SUB X14, X14, X7
+			ADDI X15, X14, #1
+			// if i + 1 = pos, end loop
+			CBZ X15, end_shift_right_loop
+			// else
+			ADD X14, X14, X7
+			LSL X13, X14, #3
+			ADD X13, X13, X5
+			LDUR X12, [X13, #0] // X21 = addr[i]
+			ADDI X13, X13, #8
+			STUR X12, [X13, #0] // addr[i + 1] = addr[i]
+			SUBI X14, X14, #1
+			B shiftRightLoop
+		end_shift_right_loop:
+			STUR X5, [SP, #8] // store X5
+			STUR X7, [SP, #32] // store X7
+			BR LR	
+	 */
+	
 	public static int findSortedPos(int[] addr, int val, int finalF) {
 		int i;
 		for(i = 0; i < finalF; i++) {
