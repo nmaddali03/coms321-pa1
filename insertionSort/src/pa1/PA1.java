@@ -9,7 +9,6 @@ public class PA1 {
 		int length;
 		System.out.print("enter size of array: ");
 		length = scan.nextInt();
-
 		int[] addr = new int[length];
 		fill(addr, length);
 		printArray(addr, length);
@@ -82,6 +81,33 @@ public class PA1 {
 		}
 		return i;
 	}
+	
+	/*
+	 *  //X5 = addr
+	    //X1 = val
+	    //X2 = final
+	    findSortedPos:
+	   		ADD X0, XZR, XZR //zero out X0 to prepare for a return
+	   		LDUR X5, [SP, #8]
+	   		LDUR X2, [SP, #24]
+	    findSortedPosLoop:
+	    	LSL X11, X0, #3
+	    	ADD X11, X11, X5
+	    	LDUR X11, [X11, #0] //X11 = addr[i]
+	    	//if addr[i] >= val, break out loop and return i
+	    	SUBS X11, X11, X1
+	    	BGE end_find_pos_loop
+	    	//if i = final, break out loop and return i
+	    	SUB X12, X2, X0
+	    	CBZ X12, end_find_pos_loop
+	    	//else continue the loop
+	    	ADDI X0, X0, #1
+	    	B findSortedPosLoop
+	    end_find_pos_loop:
+	    	STUR X5, [SP, #8] //store X5
+	    	STUR X2, [SP, #24] //store X2
+	    	BR LR
+	 */
 	
 	public static void insertSortedPos(int[] addr, int pos, int finalV) {
 		int v = addr[pos];
