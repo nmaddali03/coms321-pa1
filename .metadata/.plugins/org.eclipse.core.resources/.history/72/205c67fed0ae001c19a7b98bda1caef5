@@ -131,13 +131,6 @@ public class PA1 {
 			STUR X2, [SP, #24] // store X2
 			ADDI X1, X10, #0 // X1 = v
 			BL findSortedPos
-			ADDI X11, X0, #0 // X11 = p (from return value in X0)
-			LDUR X1, [SP, #16] // get back X1
-			ADDI X7, X11, #0 // X7 = p
-			STUR X7, [SP, #32] // store X7
-			STUR X11, [SP, #40] // store X11
-			LDUR X2, [SP, #0]
-			BL shiftRight
 	 */
 	
 	public static void insertionSort(int[] addr, int length) {
