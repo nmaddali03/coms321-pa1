@@ -1,6 +1,0 @@
-package pa1;
-
-public class insertionSort {
-
-	public void fill(int addr, int length)
-}

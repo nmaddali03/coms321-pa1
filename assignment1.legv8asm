@@ -61,3 +61,19 @@ end_find_pos_loop:
 	STUR X5, [SP, #8] //store X5
 	STUR X2, [SP, #24] //store X2
 	BR LR
+
+// X5 = addr
+// X6 = pos
+// X2 = final
+insertSortedPos:
+	LDUR X6, [SP, #0] // load X6
+	LSL X9, X6, #3
+	ADD X9, X5, X9 // X9 = &addr[i]
+	LDUR X10, [X9, #0] // X10 = addr[i] = v
+	SUBI SP, SP, #40 // make space
+	STUR X6, [SP, #0] // store X6
+	STUR X5, [SP, #8] // store X5
+	STUR X1, [SP, #16] // store X1
+	STUR X2, [SP, #24] // store X2
+	ADDI X1, X10, #0 // X1 = v
+	BL findSortedPos
