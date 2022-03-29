@@ -98,3 +98,13 @@ insertSortedPos:
 // X0 = addr
 // X1 = length
 insertionSort:
+	ADDI X6, X6, #1 // X6 = i
+	STUR X6, [SP, #0] // store X6
+	SUB X10, X6, X1
+	CBZ X10, end_insertion_sort
+	SUBI X2, X1, #1 // X2 = final index (length - 1)
+	B insertSortedPos
+end_insertion_sort:
+	LDUR X6, [SP, #0]
+	ADDI SP, SP, #8 // restore rest of space
+	DUMP
