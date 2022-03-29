@@ -1,3 +1,13 @@
+main:
+	ADD X0, XZR, XZR
+	ADDI X1, XZR, #512
+	BL fill
+	DUMP
+	ADDI X1, XZR, #512 // X1 = length
+	ADD X0, XZR, XZR // XO = addr
+	SUBI SP, SP, #8 // using this space in insertion sort loop
+	B insertionSort
+
 // X0 = addr
 // X1 = length
 fill:
