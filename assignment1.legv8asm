@@ -19,7 +19,8 @@ fill:
 	ADDI X0, X0, #8
 	B fill
 end_fill:
-	BR LR
+	//BR LR
+	DUMP
 
 // X5 = addr
 // X7 = pos
