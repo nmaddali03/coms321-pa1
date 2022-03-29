@@ -84,3 +84,17 @@ insertSortedPos:
 	STUR X11, [SP, #40] // store X11
 	LDUR X2, [SP, #0]
 	BL shiftRight
+	LDUR X6, [SP, #0] // get back X6
+	LDUR X2, [SP, #24] // get back X2
+	LDUR X5, [SP, #8] // get back X5
+	LDUR X7, [SP, #32] // get back X7
+	LDUR X11, [SP, #40] // get back X11
+	ADDI SP, SP, #40 // restore space
+	LSL X9, X11, #3
+	ADD X9, X9, X5
+	STUR X10, [X9, #0]
+	B insertionSort
+
+// X0 = addr
+// X1 = length
+insertionSort:
