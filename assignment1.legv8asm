@@ -1,3 +1,11 @@
+//Sylvia Nguyen, sylviang
+//Neha Maddali, nmaddali
+//Programming Assignment1
+//README: Our array that is being sorted is initialized and filled of integers from 512 to 1, with 512 initially being in the first array index (a[0]).
+// The array is initialized from high to low order(reverse order). To run the program, type ./legv8emul assignment1.legv8asm in the console/emulator. After running the program, the array should
+// be in low-to-high order in the main memory, with 1 being stored at a[0].
+
+
 main:
 	ADD X0, XZR, XZR
 	ADDI X1, XZR, #512
